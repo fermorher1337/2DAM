@@ -1,0 +1,52 @@
+
+
+
+header{background: aqua;
+    display: flex;
+        justify-content:center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#contenido{background-image:url(pedrolo.png);
+}
+
+.articulo{
+    color:blanchedalmond;
+    background-color: plum;
+    border: 3px solid goldenrod;
+    transform: rotate(4deg) scaleX(1);
+    width: 85%;
+}
+.articulo:hover{
+    background-color: red;
+    color:lime;
+    transform: rotate(365deg) scaleX(1);
+    transition: 35s ease-in-out;
+    width: 85%;
+}
+
+nav{
+    background-color: whitesmoke;
+
+}
+nav ul li{
+float:left;
+list-style: none;
+margin: 5px;
+line-height: 40px;
+}
+
+aside{
+    background-color: purple;
+    width: 15%;
+    float: right;
+    padding: bottom 50px; ;
+}
+footer{
+
+    background-color: violet;
+text-align: center;
+color: white;
+height: 50px;
+line-height: 30px;
+}

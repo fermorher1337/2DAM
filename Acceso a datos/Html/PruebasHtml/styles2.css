@@ -1,0 +1,12 @@
+
+body{
+    background-color:navy;
+}
+.caja{
+    background-color: brown;
+    color: pink;
+    text-align: center;
+    border: 5px;
+    border-color: blueviolet;
+    
+}
