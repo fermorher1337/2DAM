@@ -1,12 +1,40 @@
 
 body{
-    background-color:navy;
+    background:navy;
 }
-.caja{
-    background-color: brown;
+.flex-container{
+    width:70%;
+    height: 400px;
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(88,37,217,1) 60%, rgba(92,28,212,1) 69%, rgba(237,60,96,1) 95%);
     color: pink;
     text-align: center;
-    border: 5px;
-    border-color: blueviolet;
-    
+    align-content: center;
+    line-height: 100px;
+    justify-content: space-around;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px;  
+    border-radius: 5px 10px 15px 25px;
+
+}
+.caja{
+background-color:black;
+height: 200px;
+width: 200px;
+padding: 1px;
+margin: 5px;
+text-align: center;
+align-content: center;
+line-height: 50px;
+border: 1px solid goldenrod ;
+border-radius: 5px 10px 15px 25px;
+box-shadow: 10px 5px 15px khaki;
+
+}
+.caja:hover{
+    background-color: blue;
+}
+.pattern10 {
+    background-image: repeating-linear-gradient(233deg, rgba(255,255,255, 0.25), rgba(255,255,255, 0.25) 1px, transparent -19px, transparent 2px);
+    background-size: 10px;
 }
