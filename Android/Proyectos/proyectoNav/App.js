@@ -1,54 +1,69 @@
-// In App.js in a new project
-
 import * as React from 'react';
-import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {  SafeAreaView, StatusBar, StyleSheet,  TouchableOpacity } from "react-native";
 
+const USER_LIST = [
+  {
 
+    id:1,
+    nombre: 'Fernando'
 
+  },
+  {
+    id: 2,
+    nombre: 'Paquito'
+  }
+];
 
-function HomeScreen({ navigation, route }) {
-  const {userName}=route.params;
+function HomeScreen() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Pantalla home</Text>
-      <Button
-        onPress={() => navigation.navigate('Pantalla2')}
-        title="Pantalla 2"
-        color="red"
-      />
+    
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Lorem ipsum bla bla bla bla</Text>
     </View>
   );
 }
 
-function Pantalla2(route) {
-
+function SettingsScreen() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Pantalla 2</Text>
-      <Button
-        onPress={() => navigation.navigate('HomeScreen')}
-        title="Pantalla home"
-        color="purple"
-      />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+     <Text>Listado de usuarios</Text>
     </View>
+
   );
 }
 
+const Tab = createBottomTabNavigator();
 
-const Stack = createNativeStackNavigator();
-
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='HomeScreen'>
-        <Stack.Screen name="Pantalla home" component={HomeScreen} />
-        <Stack.Screen name="Pantalla 2" component={Pantalla2} />
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
 
-      </Stack.Navigator>
+            if (route.name === 'Info') {
+              iconName = focused
+                ? 'ios-information-circle'
+                : 'ios-information-circle-outline';
+            } else if (route.name === 'Listado') {
+              iconName = focused ? 'ios-list' : 'ios-list-outline';
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: 'red',
+          tabBarInactiveTintColor: 'silver',
+        })}
+      >
+        <Tab.Screen name="Info" component={HomeScreen} />
+        <Tab.Screen name="Listado" component={SettingsScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
-
-export default App;
